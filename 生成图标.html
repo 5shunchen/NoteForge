@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>生成图标</title>
+</head>
+<body>
+<canvas id="canvas" width="256" height="256"></canvas>
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+// 背景渐变
+const grad = ctx.createLinearGradient(0, 0, 256, 256);
+grad.addColorStop(0, '#0d1117');
+grad.addColorStop(1, '#161b22');
+ctx.fillStyle = grad;
+ctx.fillRect(0, 0, 256, 256);
+
+// NF 字母
+ctx.fillStyle = '#58a6ff';
+ctx.font = 'bold 140px Arial';
+ctx.textAlign = 'center';
+ctx.textBaseline = 'middle';
+ctx.fillText('NF', 128, 128);
+
+// 边框
+ctx.strokeStyle = '#58a6ff';
+ctx.lineWidth = 8;
+ctx.strokeRect(10, 10, 236, 236);
+
+// 下载
+canvas.toBlob(blob => {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'icon.png';
+  a.click();
+});
+</script>
+</body>
+</html>
