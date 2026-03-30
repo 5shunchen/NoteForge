@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Build outputs (but keep installer script)
+build/*
+!build/installer.nsi
+dist/
+pkg/
+
+# src build artifacts
+src/node_modules/
+
+# IDE and editor files
+.claude/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and temp files
+*.log
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+*~
